@@ -6,16 +6,23 @@ import Loader from './shared/Loader';
 import { ProductsContext } from '../contexts/Productcontextprovider';
 // Style
 import styles from "./Store.module.css";
+import Pagination from './Pagination';
 
-const Store = () => {
+//change page
 
-    const produtcts = useContext(ProductsContext)
+const Store = () =>{
+    const {indexoflastpost,indexoffirstpost , products , paginate} = useContext(ProductsContext);
+    const currentposts = products.slice(indexoffirstpost,indexoflastpost); 
+    console.log(indexoflastpost);
+    //console.log(currentposts);
     return (
         <div className={styles.maincontainer}>
                     <div className={styles.container}>
 
-            {produtcts.length ? produtcts.map(product => <Product key={product.id} productData={product}/>) : <Loader/>}
-
+            {currentposts.length ? currentposts.map(product => <Product key={product.id} productData={product}/>) : <Loader/>}
+            </div>
+            <div className="styles.page">
+            <Pagination paginate={paginate} />
             </div>
         </div>
         

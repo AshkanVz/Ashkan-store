@@ -14,10 +14,10 @@ const Footernav = () => {
     return (
         <div className={styles.mainContainer}>
             <div className={styles.container}>
-            <Link><img className={styles.image} src={Bag} alt="bag" /></Link>
-            <Link><img className={styles.image} src={Mag} alt="mag" /></Link>
+            <Link to="/main"><img className={styles.image} src={Bag} alt="bag" /></Link>
+            <Link to="/main"><img className={styles.image} src={Mag} alt="mag" /></Link>
             <Link to="/main"><img className={styles.image} src={Acc} alt="acc" /></Link>
-            <Link><img className={styles.image} src={Credit} alt="credit" /></Link>
+            <Link to="/main"><img className={styles.image} src={Credit} alt="credit" /></Link>
             <Link to="/products"><img className={styles.image} src={Store} alt="store" /></Link>
             </div>
            

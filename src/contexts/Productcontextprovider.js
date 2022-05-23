@@ -8,6 +8,8 @@ export const ProductsContext = createContext();
 const Productcontextprovider = ({children}) => {
 
     const [products, setProducts]= useState([]);
+    const [currentPage, setCurrentPage]= useState(1);
+    const [postsperpage]= useState(5);
 
     useEffect(() => {
         const fetchAPI = async () => {
@@ -17,8 +19,16 @@ const Productcontextprovider = ({children}) => {
         fetchAPI();
     }, []);
 
+//get current products
+const indexoflastpost = currentPage * postsperpage;
+const indexoffirstpost = indexoflastpost - postsperpage;
+//const currentposts = products.slice(indexoffirstpost,indexoflastpost); 
+
+//change page
+const paginate = pageNumber => setCurrentPage(pageNumber);
+
     return (
-        <ProductsContext.Provider value={products}>
+        <ProductsContext.Provider value={{indexoflastpost,indexoffirstpost, postsperpage , products , paginate}}>
              {children}
         </ProductsContext.Provider>
     );

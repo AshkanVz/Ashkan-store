@@ -14,7 +14,11 @@ import Footernav from './components/Footernav';
 
 
 
+
+
+
 function App() {
+  
   return (
     <div className="App">
       <Productcontextprovider>
@@ -23,13 +27,19 @@ function App() {
             <Switch>
               <Route path="/products/:id" component={ProductDetail}/>
               <Route path="/products" component={Store}/>
+             
               <Route path="/cart" component={Shopcart}/>
               
               <Redirect to="/"/>
             </Switch>
+            
             <Footernav/>
          </Cartcontextprovider>
+         
       </Productcontextprovider>
+      
+      
+      
     </div>
   );
 }
